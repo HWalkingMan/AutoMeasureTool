@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classChart>
+
+  <class name="class1" type="normal" domain="default">
+    <parameters>
+      <parameter name="para1" type="String" domain="private"/>
+      <parameter name="para2" type="boolean" domain="private"/>
+      <parameter name="para3" type="Date" domain="private"/>
+    </parameters>
+    <methods>
+      <method name="method1_1" type="create" return="this" domain="public" override="true" complexity="0" isCohesion="false" />
+      <method name="method1_2" type="create" return="this" domain="public" override="true" complexity="0" isCohesion="false">
+        <inPara name="inpara1_2_1" type="String"/>
+        <inPara name="inpara1_2_2" type="boolean"/>
+        <transferMethod name="method2_1" class="class2"/>
+        <transferMethod name="method2_2" class="class2"/>
+        <transferMethod name="method3_3" class="class3"/>
+        <transferMethod name="method3_4" class="class3"/>
+      </method>
+      <method name="method1_3" type="getter" return="String" domain="public" override="false" complexity="0" isCohesion="true"/>
+      <method name="method1_4" type="setter" return="void" domain="public" override="false" complexity="0" isCohesion="true">
+        <inPara name="inpara1_4_1" type="String"/>
+        <transferMethod name="method4_1" class="class4"/>
+        <transferMethod name="method5_1" class="class5"/>
+      </method>
+    </methods>
+    <dependencies>
+      <dependency name="Date"/>
+      <dependency name="String"/>
+    </dependencies>
+    <associations>
+      <association name="class2" type="normal"/>
+      <association name="class3" type="aggregation"/>
+      <association name="class4" type="composition"/>
+    </associations>
+    <realizations>
+      <realization name="class5"/>
+    </realizations>
+  </class>
+
+  <class name="class4" type="interface" domain="default">
+    <methods>
+      <method name="method4_1" type="normal" return="double" override="true" domain="default" complexity="0" isCohesion="false"/>
+    </methods>
+  </class>
+
+  <class name="class6" type="normal" extends="class1" implements="class4" domain="default">
+    <methods>
+      <method name="method6_1" type="normal" return="double" override="true" domain="public" complexity="3">
+        <transferMethod name="method2_1" class="class2"/>
+        <transferMethod name="method2_2" class="class2"/>
+        <transferMethod name="method3_1" class="class3"/>
+        <transferMethod name="method3_2" class="class3"/>
+      </method>
+      <method name="method6_2" type="normal" return="void" override="false" domain="public" complexity="2" isCohesion="true"/>
+      <method name="method6_3" type="normal" return="void" override="false" domain="public" complexity="3" isCohesion="true">
+        <transferMethod name="method2_3" class="class2"/>
+        <transferMethod name="method2_4" class="class2"/>
+      </method>
+      <method name="method6_4" type="normal" return="void" override="false" domain="public" complexity="1" isCohesion="true"/>
+    </methods>
+  </class>
+</classChart>
