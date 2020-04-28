@@ -1,7 +1,6 @@
-import static org.junit.Assert.*;
-
-import java.io.IOException;
 import org.junit.Test;
+import service.ClassCKMeasurer;
+import service.XmlScanner;
 
 /**
  * @Description
@@ -11,10 +10,10 @@ import org.junit.Test;
 public class ClassCKMeasurerTest {
 
   @Test
-  public void CKMeasurera() throws IOException {
+  public void CKMeasurera() throws Exception {
     XmlScanner.scanXML();
     ClassCKMeasurer measurer=new ClassCKMeasurer();
-    ClassCKMeasurer.setClassMap(XmlScanner.returnClassMap());
+    measurer.setClassMap(XmlScanner.returnClassMap());
     System.out.println("CBO> "+measurer.measurerCBO("class6"));
     System.out.println("WMC> "+measurer.measurerWMC("class6"));
     System.out.println("DIT> "+measurer.measurerDIT("class6"));

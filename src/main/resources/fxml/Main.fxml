@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-  xmlns:fx="http://javafx.com/fxml"
-  fx:controller="Main"
-  prefHeight="400.0" prefWidth="600.0">
-
+<AnchorPane fx:id="rootLayout" prefHeight="440.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <Button fx:id="btn_openXML" layoutX="40.0" layoutY="34.0" mnemonicParsing="false" onAction="#btn_openXML_click" text="打开XML" />
+      <ComboBox fx:id="sl_classes" disable="true" layoutX="41.0" layoutY="117.0" prefHeight="30.0" prefWidth="416.0" />
+      <Label layoutX="40.0" layoutY="91.0" text="选择要度量的类" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="216.0" layoutX="41.0" layoutY="203.0" stroke="BLACK" strokeType="INSIDE" width="416.0" />
+      <Label layoutX="40.0" layoutY="172.0" text="CK度量结果">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="66.0" layoutY="220.0" text="WMC" />
+      <Label layoutX="270.0" layoutY="340.0" text="LCOM" />
+      <Label layoutX="68.0" layoutY="280.0" text="RFC" />
+      <Label layoutX="68.0" layoutY="340.0" text="DIT" />
+      <Label layoutX="270.0" layoutY="220.0" text="NOC" />
+      <Label layoutX="270.0" layoutY="280.0" text="CBO" />
+      <TextField fx:id="te_WMC" editable="false" layoutX="93.0" layoutY="240.0" prefHeight="13.0" prefWidth="121.0" />
+      <TextField fx:id="te_RFC" editable="false" layoutX="93.0" layoutY="301.0" prefHeight="13.0" prefWidth="121.0" />
+      <TextField fx:id="te_DIT" editable="false" layoutX="93.0" layoutY="360.0" prefHeight="13.0" prefWidth="121.0" />
+      <TextField fx:id="te_NOC" editable="false" layoutX="293.0" layoutY="240.0" prefHeight="13.0" prefWidth="121.0" />
+      <TextField fx:id="te_CBO" editable="false" layoutX="293.0" layoutY="301.0" prefHeight="13.0" prefWidth="121.0" />
+      <TextField fx:id="te_LCOM" editable="false" layoutX="293.0" layoutY="360.0" prefHeight="13.0" prefWidth="121.0" />
+      <Label fx:id="la_warnMsg" layoutX="181.0" layoutY="49.0" prefHeight="20.0" prefWidth="278.0" textFill="RED" />
+      <Button fx:id="btn_start" disable="true" layoutX="367.0" layoutY="169.0" mnemonicParsing="false" onAction="#btn_start_click" text="开始计算" />
+      <Button fx:id="btn_test" layoutX="7.0" layoutY="404.0" mnemonicParsing="false" onAction="#btn_test_click" text="测试" />
+   </children>
 </AnchorPane>

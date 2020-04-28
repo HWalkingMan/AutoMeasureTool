@@ -1,7 +1,5 @@
-import static org.junit.Assert.*;
-
-import java.io.IOException;
 import org.junit.Test;
+import service.XmlScanner;
 
 /**
  * @Description
@@ -11,7 +9,7 @@ import org.junit.Test;
 public class XmlScannerTest {
 
   @Test
-  public void scanXML() throws IOException {
+  public void scanXML() throws Exception {
     XmlScanner.scanXML();
     System.out.println();
   }

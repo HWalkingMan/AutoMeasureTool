@@ -1,3 +1,5 @@
+package service;
+
 import components.MyClass;
 import components.MyInPara;
 import components.MyMethod;
@@ -35,11 +37,11 @@ public class XmlScanner {
     return classTable;
   }
 
-  public static void scanXML() throws IOException {
+  public static void scanXML() throws Exception {
     midXML = new File(midXMLPATH);
     if (!midXML.exists()) {
-      System.out.println("can not find XML,check your path");
-      return;
+      System.out.println("can not find XML");
+      throw new Exception("can not find XML");
     }
     Document doc = Jsoup.parse(midXML, "utf-8");
     Elements classs = doc.getElementsByTag("class");

@@ -1,3 +1,5 @@
+package service;
+
 import components.MyClass;
 import components.MyMethod;
 import java.util.Map;
@@ -8,7 +10,7 @@ import java.util.Map;
  * @Date 2020/4/27 22:36
  */
 public class ClassCKMeasurer {
-  private static Map<String, MyClass> classMap;
+  private  Map<String, MyClass> classMap;
 
   private boolean isMeasurable(String className){
     if (!classMap.containsKey(className)){
@@ -20,8 +22,8 @@ public class ClassCKMeasurer {
     }
   }
 
-  public static void setClassMap(Map<String, MyClass> classMap) {
-    ClassCKMeasurer.classMap = classMap;
+  public void setClassMap(Map<String, MyClass> classMap) {
+    this.classMap = classMap;
   }
 
   //类的加权方法数
