@@ -13,7 +13,7 @@ import java.util.Map.Entry;
  * @Author WM
  * @Date 2020/4/28 11:16
  */
-public class MeasurerService {
+public class GUIMeasurerService {
 
   private MainController controller;
 
@@ -23,7 +23,7 @@ public class MeasurerService {
 
   ClassCKMeasurer measurer=new ClassCKMeasurer();
 
-  public MeasurerService(MainController controller) {
+  public GUIMeasurerService(MainController controller) {
     this.controller = controller;
   }
 
