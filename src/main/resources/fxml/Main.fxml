@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.shape.*?>
 <?import java.lang.*?>
@@ -8,31 +9,71 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="rootLayout" prefHeight="440.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+<AnchorPane fx:id="rootLayout" prefHeight="760.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
    <children>
-      <Button fx:id="btn_openXML" layoutX="40.0" layoutY="34.0" mnemonicParsing="false" onAction="#btn_openXML_click" text="打开XML" />
-      <ComboBox fx:id="sl_classes" disable="true" layoutX="41.0" layoutY="117.0" prefHeight="30.0" prefWidth="416.0" />
+      <Button fx:id="btn_openXML" layoutX="40.0" layoutY="34.0" mnemonicParsing="false" onAction="#btn_openXML_click" text="打开XML（中间文件）" />
+      <ComboBox fx:id="sl_classes" disable="true" layoutX="18.0" layoutY="117.0" prefHeight="30.0" prefWidth="594.0" />
       <Label layoutX="40.0" layoutY="91.0" text="选择要度量的类" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="216.0" layoutX="41.0" layoutY="203.0" stroke="BLACK" strokeType="INSIDE" width="416.0" />
-      <Label layoutX="40.0" layoutY="172.0" text="CK度量结果">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Label>
-      <Label layoutX="66.0" layoutY="220.0" text="WMC" />
-      <Label layoutX="270.0" layoutY="340.0" text="LCOM" />
-      <Label layoutX="68.0" layoutY="280.0" text="RFC" />
-      <Label layoutX="68.0" layoutY="340.0" text="DIT" />
-      <Label layoutX="270.0" layoutY="220.0" text="NOC" />
-      <Label layoutX="270.0" layoutY="280.0" text="CBO" />
-      <TextField fx:id="te_WMC" editable="false" layoutX="93.0" layoutY="240.0" prefHeight="13.0" prefWidth="121.0" />
-      <TextField fx:id="te_RFC" editable="false" layoutX="93.0" layoutY="301.0" prefHeight="13.0" prefWidth="121.0" />
-      <TextField fx:id="te_DIT" editable="false" layoutX="93.0" layoutY="360.0" prefHeight="13.0" prefWidth="121.0" />
-      <TextField fx:id="te_NOC" editable="false" layoutX="293.0" layoutY="240.0" prefHeight="13.0" prefWidth="121.0" />
-      <TextField fx:id="te_CBO" editable="false" layoutX="293.0" layoutY="301.0" prefHeight="13.0" prefWidth="121.0" />
-      <TextField fx:id="te_LCOM" editable="false" layoutX="293.0" layoutY="360.0" prefHeight="13.0" prefWidth="121.0" />
       <Label fx:id="la_warnMsg" layoutX="181.0" layoutY="49.0" prefHeight="20.0" prefWidth="278.0" textFill="RED" />
-      <Button fx:id="btn_start" disable="true" layoutX="367.0" layoutY="169.0" mnemonicParsing="false" onAction="#btn_start_click" text="开始计算" />
-      <Button fx:id="btn_test" layoutX="7.0" layoutY="404.0" mnemonicParsing="false" onAction="#btn_test_click" text="测试" />
+      <Button fx:id="btn_start" disable="true" layoutX="379.0" layoutY="34.0" mnemonicParsing="false" onAction="#btn_start_click" text="开始计算" visible="false" />
+      <Button fx:id="btn_test" layoutX="284.0" layoutY="34.0" mnemonicParsing="false" onAction="#btn_test_click" text="测试" visible="false" />
+      <TabPane layoutX="19.0" layoutY="153.0" prefHeight="574.0" prefWidth="594.0" style="-fx-border-color: #000000;" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="CK度量结果">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="251.0" prefWidth="463.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="216.0" layoutX="24.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="546.0" />
+                        <Label layoutX="66.0" layoutY="54.0" text="WMC" />
+                        <Label layoutX="320.0" layoutY="174.0" text="LCOM" />
+                        <Label layoutX="67.0" layoutY="114.0" text="RFC" />
+                        <Label layoutX="68.0" layoutY="174.0" text="DIT" />
+                        <Label layoutX="320.0" layoutY="54.0" text="NOC" />
+                        <Label layoutX="320.0" layoutY="114.0" text="CBO" />
+                        <TextField fx:id="te_WMC" editable="false" layoutX="116.0" layoutY="52.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_RFC" editable="false" layoutX="116.0" layoutY="113.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_DIT" editable="false" layoutX="116.0" layoutY="172.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_NOC" editable="false" layoutX="380.0" layoutY="53.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_CBO" editable="false" layoutX="380.0" layoutY="114.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_LCOM" editable="false" layoutX="380.0" layoutY="173.0" prefHeight="13.0" prefWidth="121.0" />
+                        <BarChart fx:id="bc_CK" layoutX="24.0" layoutY="239.0" prefHeight="281.0" prefWidth="549.0">
+                           <xAxis>
+                              <CategoryAxis fx:id="bc_ck_x" side="BOTTOM" />
+                           </xAxis>
+                           <yAxis>
+                              <NumberAxis fx:id="bc_ck_y" side="LEFT" upperBound="15.0" />
+                           </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="LK度量结果">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#1f93ff00" height="178.0" layoutX="24.0" layoutY="17.0" stroke="BLACK" strokeType="INSIDE" width="549.0" />
+                        <TextField fx:id="te_CS" editable="false" layoutX="111.0" layoutY="48.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_NOO" editable="false" layoutX="383.0" layoutY="48.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_NOA" editable="false" layoutX="111.0" layoutY="128.0" prefHeight="13.0" prefWidth="121.0" />
+                        <TextField fx:id="te_SI" editable="false" layoutX="383.0" layoutY="128.0" prefHeight="13.0" prefWidth="121.0" />
+                        <Label layoutX="68.0" layoutY="52.0" text="CS" />
+                        <Label layoutX="331.0" layoutY="51.0" text="NOO" />
+                        <Label layoutX="68.0" layoutY="132.0" text="NOA" />
+                        <Label layoutX="350.0" layoutY="131.0" text="SI" />
+                        <BarChart fx:id="bc_LK" layoutX="25.0" layoutY="222.0" prefHeight="286.0" prefWidth="550.0">
+                          <xAxis>
+                            <CategoryAxis fx:id="bc_lk_x" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="bc_lk_y" side="LEFT" upperBound="15.0" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+        </tabs>
+      </TabPane>
    </children>
 </AnchorPane>

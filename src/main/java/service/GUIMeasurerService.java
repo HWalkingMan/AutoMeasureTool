@@ -21,7 +21,9 @@ public class GUIMeasurerService {
 
   List<String> measurableClassnames=new ArrayList<>();
 
-  ClassCKMeasurer measurer=new ClassCKMeasurer();
+  ClassCKMeasurer ckMeasurer =new ClassCKMeasurer();
+
+  ClassLKMeasurer lkMeasurer =new ClassLKMeasurer();
 
   public GUIMeasurerService(MainController controller) {
     this.controller = controller;
@@ -46,9 +48,11 @@ public class GUIMeasurerService {
 
         getMeasurableClassName();
 
+        ckMeasurer.setClassMap(classTable);
+        lkMeasurer.setClassMap(classTable);
+
         controller.setSl_classesContent(measurableClassnames);
 
-        measurer.setClassMap(classTable);
       }
     }.run();
 
@@ -62,16 +66,28 @@ public class GUIMeasurerService {
     }
   }
 
-  public Map<String,Integer> measureClassByName(String className){
+  public Map<String,Integer> measureClassCKByName(String className){
     Map<String,Integer> result=new HashMap<>();
-    result.put("WMC",measurer.measurerWMC(className));
-    result.put("DIT",measurer.measurerDIT(className));
-    result.put("CBO",measurer.measurerCBO(className));
-    result.put("LCOM",measurer.measurerLCOM(className));
-    result.put("NOC",measurer.measurerNOC(className));
-    result.put("RFC",measurer.measurerRFC(className));
+    result.put("WMC", ckMeasurer.measurerWMC(className));
+    result.put("DIT", ckMeasurer.measurerDIT(className));
+    result.put("CBO", ckMeasurer.measurerCBO(className));
+    result.put("LCOM", ckMeasurer.measurerLCOM(className));
+    result.put("NOC", ckMeasurer.measurerNOC(className));
+    result.put("RFC", ckMeasurer.measurerRFC(className));
 
     return result;
   }
+
+  public Map<String,Integer> measureClassLKByName(String className){
+    Map<String,Integer> result=new HashMap<>();
+    result.put("CS", lkMeasurer.measurerCS(className));
+    result.put("NOA", lkMeasurer.measurerNOA(className));
+    result.put("NOO", lkMeasurer.measurerNOO(className));
+    result.put("SI", lkMeasurer.measurerSI(className));
+
+    return result;
+  }
+
+
 
 }
