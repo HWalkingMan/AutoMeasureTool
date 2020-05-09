@@ -23,7 +23,7 @@ public class GUIAppMain extends Application {
     Parent root = FXMLLoader.load(getClass().getResource("fxml/Main.fxml"));
     Scene scene = new Scene(root, 640, 760);
 
-    primaryStage.setTitle("Auto Metrics");
+    primaryStage.setTitle("Auto Metrics (by YHK）");
     primaryStage.setScene(scene);
     primaryStage.show();
 

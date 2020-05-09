@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE classChart SYSTEM "midXML.dtd">
 <classChart>
-
   <class name="class1" type="normal" domain="default">
     <parameters>
       <parameter name="para1" type="String" domain="private"/>
@@ -46,7 +46,7 @@
 
   <class name="class6" type="normal" extends="class1" implements="class4" domain="default">
     <methods>
-      <method name="method6_1" type="normal" return="double" override="true" domain="public" complexity="3">
+      <method name="method4_1" type="normal" return="double" override="true" domain="public" complexity="3">
         <transferMethod name="method2_1" class="class2"/>
         <transferMethod name="method2_2" class="class2"/>
         <transferMethod name="method3_1" class="class3"/>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE classChart [
+  <!ELEMENT classChart (class)>
+  <!ELEMENT class (parameters?,methods?,dependencies?,associations?,realizations?)>
+
+  <!ATTLIST class name ID #REQUIRED>
+  <!ATTLIST class type (normal|abstract|interface|enum) #REQUIRED>
+  <!ATTLIST class extends IDREF #IMPLIED>
+  <!ATTLIST class implements IDREFS #IMPLIED>
+  <!ATTLIST class domain (public|private|protected|default) default>
+
+  <!ELEMENT parameters (parameter*)>
+  <!ELEMENT parameter EMPTY>
+  <!ATTLIST parameter name ID #REQUIRED>
+  <!ATTLIST parameter type CDATA #REQUIRED>
+  <!ATTLIST parameter domain (public|private|protected|default) default>
+
+  <!ELEMENT methods (method*)>
+  <!ELEMENT method (inPara,transferMethod)*>
+  <!ATTLIST method name ID #REQUIRED>
+  <!ATTLIST method type (normal|getter|setter|create) #REQUIRED>
+  <!ATTLIST method domain (public|private|protected|default) default>
+  <!ATTLIST method return CDATA #REQUIRED>
+  <!ATTLIST method override (true|false) false>
+  <!ATTLIST method complexity CDATA 0>
+  <!ATTLIST method isCohesion (true|false) false>
+
+  <!ELEMENT inPara EMPTY>
+  <!ATTLIST inPara name ID #REQUIRED>
+  <!ATTLIST inPara type CDATA #REQUIRED>
+
+  <!ELEMENT transferMethod EMPTY>
+  <!ATTLIST transferMethod name IDREF #REQUIRED>
+  <!ATTLIST transferMethod class IDREF #REQUIRED>
+
+  <!ELEMENT dependencies (dependency)*>
+  <!ELEMENT dependency EMPTY>
+  <!ATTLIST dependency name CDATA #REQUIRED>
+
+  <!ELEMENT associations (association)*>
+  <!ELEMENT association EMPTY>
+  <!ATTLIST association name ID #REQUIRED>
+  <!ATTLIST association type (normal|aggregation|composition) normal>
+
+  <!ELEMENT realizations (realization)*>
+  <!ELEMENT realization EMPTY>
+  <!ATTLIST realization name ID #REQUIRED>
+  ]>
